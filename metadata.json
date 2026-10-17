@@ -1,0 +1,6 @@
+{
+  "name": "Régua Layout SPA",
+  "description": "Single-page React app combining element ruler and column layout ruler tools into a UI overlay with URL bar and responsive preview.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

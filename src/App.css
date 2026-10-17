@@ -1,0 +1,280 @@
+/* App Container */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8fafc;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  color: #0f172a;
+}
+
+/* Header Container (Sticky no topo com os botões e barra de pesquisa) */
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.25rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.ruler-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Botões puramente de ícone (sem texto) com raio de borda completo */
+.btn-ruler-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #64748b;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+}
+
+.btn-ruler-icon:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.btn-ruler-icon.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 1px 3px 0 rgba(2, 132, 199, 0.3);
+}
+
+.btn-ruler-icon.active:hover {
+  background-color: #0369a1;
+  border-color: #0369a1;
+}
+
+/* Barra de pesquisa dentro do header, ao lado e depois dos botões de ícone */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 0.95rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 2.35rem;
+  padding-left: 2.6rem;
+  padding-right: 2.75rem;
+  font-size: 0.875rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Botão com ícone de cadeado no canto direito da barra de pesquisa com raio de borda completo */
+.btn-lock {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-lock:hover {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+.btn-lock.saved {
+  color: #0284c7;
+  background-color: #e0f2fe;
+}
+
+.btn-lock:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+/* Viewport Area */
+.viewport-area {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.site-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ffffff;
+}
+
+/* Menu Hambúrguer Vazio */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
+.menu-drawer-empty {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 85vw;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+  border-left: 1px solid #e2e8f0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.menu-drawer-empty-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.btn-close-drawer {
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  color: #64748b;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.btn-close-drawer:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.menu-drawer-empty-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* Toast Message */
+.toast-notice {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 120;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glassmorphism Floating Pills for UI Ruler and Column Grid */
+.floating-glass-pill {
+  position: absolute;
+  z-index: 45;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+}
+
+/* Dragging mode helper to prevent iframe from swallowing pointer events */
+body.is-dragging-element,
+body.is-dragging-element iframe {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+body.is-dragging-element iframe {
+  pointer-events: none !important;
+}
